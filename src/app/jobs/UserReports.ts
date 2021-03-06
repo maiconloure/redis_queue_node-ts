@@ -5,7 +5,7 @@ export default {
     delay: 5000
   },
   
-  async handle({ data }) {
+  async handle({ data }: any) {
     const { user } = data;
 
     console.log(user);

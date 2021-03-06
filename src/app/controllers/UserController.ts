@@ -1,8 +1,8 @@
 import Queue from '../lib/Queue';
+import { Request, Response } from 'express';
 
 export default { // As userController
-  
-  async store(req, res) {
+  async store(req: Request, res: Response) {
     const { name, email, password } = req.body;
 
     const user = {
