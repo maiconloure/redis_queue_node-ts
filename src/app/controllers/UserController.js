@@ -1,6 +1,7 @@
-import Mail from '../lib/Mail';
+import Queue from '../lib/Queue';
 
-export default {
+export default { // As userController
+  
   async store(req, res) {
     const { name, email, password } = req.body;
 
@@ -10,6 +11,10 @@ export default {
       password
     };
 
+    await Queue.add('RegistrationMail', { user });
+
+    await Queue.add('UserReport', { user });
+
     return res.json(user);
   }
-} 
+};
